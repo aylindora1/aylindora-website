@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\aylin\\\\Desktop\\\\Dora\" -Recurse -Force)",
+      "Bash(Select-Object -Property FullName)",
+      "Bash(ConvertTo-Json)",
+      "Bash(Measure-Object -Line)",
+      "PowerShell(Get-Item *)",
+      "Bash(npm --version)",
+      "Bash(npx --version)",
+      "Bash(npm show *)",
+      "Bash(npm)",
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(npx tailwindcss *)",
+      "Bash(npm run *)"
+    ]
+  }
+}
