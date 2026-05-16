@@ -3,12 +3,20 @@ import { useActiveSection } from '../../hooks/useActiveSection'
 import { cv } from '../../data/cv'
 
 const NAV_LINKS = [
-  { label: 'Experience', href: '#experience' },
-  { label: 'Skills',     href: '#skills'     },
-  { label: 'Projects',   href: '#projects'   },
-  { label: 'Education',  href: '#education'  },
-  { label: 'Contact',    href: '#contact'    },
+  { label: 'Experience', href: '#experience', hover: 'hover:bg-rose-300'    },
+  { label: 'Skills',     href: '#skills',     hover: 'hover:bg-amber-300'   },
+  { label: 'Projects',   href: '#projects',   hover: 'hover:bg-emerald-300' },
+  { label: 'Education',  href: '#education',  hover: 'hover:bg-sky-300'     },
+  { label: 'Contact',    href: '#contact',    hover: 'hover:bg-violet-300'  },
 ]
+
+const ACTIVE_COLOR = {
+  experience: 'bg-rose-300',
+  skills:     'bg-amber-300',
+  projects:   'bg-emerald-300',
+  education:  'bg-sky-300',
+  contact:    'bg-violet-300',
+}
 
 const SECTION_IDS = ['hero', 'experience', 'skills', 'projects', 'education', 'contact']
 
@@ -17,30 +25,28 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100">
-      <nav className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
+    <header className="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b-thick border-b-2 border-ink">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <a
           href="#hero"
-          className="font-display font-bold text-gray-900 text-lg hover:text-accent-600 transition-colors"
+          className="font-display font-black text-ink text-xl hover:scale-105 transition-transform inline-flex items-center gap-1.5"
         >
           {cv.name.split(' ')[0]}
-          <span className="text-accent-500">.</span>
+          <span className="w-2.5 h-2.5 rounded-full bg-rose-400 border-thick border-ink" />
         </a>
 
-        {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-1">
-          {NAV_LINKS.map(({ label, href }) => {
+          {NAV_LINKS.map(({ label, href, hover }) => {
             const id = href.slice(1)
             const isActive = active === id
             return (
               <li key={href}>
                 <a
                   href={href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                  className={`px-3 py-1.5 rounded-xl text-sm font-bold border-thick border-transparent transition-all duration-150 ${
                     isActive
-                      ? 'bg-accent-50 text-accent-600'
-                      : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
+                      ? `${ACTIVE_COLOR[id]} text-ink border-ink shadow-pop-sm -translate-y-0.5`
+                      : `text-ink ${hover}`
                   }`}
                 >
                   {label}
@@ -50,13 +56,12 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-50 transition-colors"
+          className="md:hidden p-2 rounded-xl text-ink border-thick border-ink bg-amber-300 shadow-pop-sm hover:-translate-y-0.5 hover:shadow-pop transition-all"
           onClick={() => setMenuOpen(v => !v)}
           aria-label="Toggle menu"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
             {menuOpen
               ? <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               : <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -65,16 +70,15 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white px-6 py-3">
-          <ul className="flex flex-col gap-1">
-            {NAV_LINKS.map(({ label, href }) => (
+        <div className="md:hidden border-t-thick border-t-2 border-ink bg-cream px-4 py-3">
+          <ul className="flex flex-col gap-2">
+            {NAV_LINKS.map(({ label, href, hover }) => (
               <li key={href}>
                 <a
                   href={href}
                   onClick={() => setMenuOpen(false)}
-                  className="block px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-accent-50 hover:text-accent-600 transition-colors"
+                  className={`block px-4 py-2.5 rounded-xl text-sm font-bold text-ink border-thick border-ink ${hover.replace('hover:', '')}`}
                 >
                   {label}
                 </a>

@@ -8,16 +8,48 @@
   }
 
   body {
-    @apply font-sans text-gray-900 bg-white antialiased overflow-x-hidden;
+    @apply font-sans text-ink antialiased overflow-x-hidden;
+    background-color: #fffceb;
+    background-image:
+      radial-gradient(circle at 25% 10%, rgba(251, 113, 133, 0.08) 0, transparent 40%),
+      radial-gradient(circle at 75% 60%, rgba(14, 165, 233, 0.08) 0, transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(245, 158, 11, 0.10) 0, transparent 40%);
   }
 
   h1, h2, h3 {
     @apply font-display;
   }
+
+  ::selection {
+    background-color: #fde047;
+    color: #0f0e17;
+  }
 }
 
 @layer utilities {
+  .text-rainbow {
+    background: linear-gradient(90deg, #f43f5e 0%, #f59e0b 25%, #10b981 50%, #0ea5e9 75%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  .border-thick {
+    border-width: 2.5px;
+  }
+
+  /* Sticker — slight rotation + hard offset shadow */
+  .sticker {
+    @apply border-thick border-ink rounded-2xl bg-white shadow-pop transition-all duration-200;
+  }
+  .sticker:hover {
+    transform: translate(-2px, -2px);
+    @apply shadow-pop-lg;
+  }
+
   .section-label {
-    @apply text-accent-500 uppercase tracking-widest text-xs font-semibold mb-3;
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full border-thick border-ink bg-white;
   }
 }

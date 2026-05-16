@@ -1,24 +1,37 @@
 import { cv } from '../../data/cv'
-import Badge from '../ui/Badge'
 
 export default function Skills() {
   return (
-    <section id="skills" className="bg-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14 md:py-24">
-        <p className="section-label">What I work with</p>
-        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8 md:mb-12">
-          Skills & Technologies
+    <section id="skills" className="relative" style={{ backgroundColor: '#fffceb' }}>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+        <span className="section-label bg-emerald-300">my toolkit</span>
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-ink mb-3">
+          Skills & <span className="text-rainbow">Stack</span>
         </h2>
+        <p className="text-ink/60 text-sm md:text-base mb-12 max-w-xl font-medium">
+          Tools I've used enough to trust — and a few I'm still falling in love with.
+        </p>
 
-        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-          {cv.skillCategories.map(cat => (
-            <div key={cat.category} className="p-4 sm:p-6 rounded-2xl border border-gray-100 bg-gray-50/50">
-              <h3 className="font-display text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3 sm:mb-4">
-                {cat.category}
-              </h3>
+        <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
+          {cv.skillCategories.map((cat, i) => (
+            <div
+              key={cat.category}
+              className={`${cat.bg} border-thick border-ink rounded-3xl p-5 sm:p-6 shadow-pop hover:shadow-pop-lg hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 ${i % 2 === 0 ? '-rotate-1' : 'rotate-1'} hover:rotate-0`}
+            >
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-2xl font-black text-ink">{cat.emoji}</span>
+                <h3 className="font-display text-base sm:text-lg font-black text-ink uppercase tracking-wide">
+                  {cat.category}
+                </h3>
+              </div>
               <div className="flex flex-wrap gap-2">
                 {cat.items.map(item => (
-                  <Badge key={item} label={item} accent={cat.accent} />
+                  <span
+                    key={item}
+                    className={`px-3 py-1 rounded-full text-xs font-bold ${cat.badge} border-thick`}
+                  >
+                    {item}
+                  </span>
                 ))}
               </div>
             </div>

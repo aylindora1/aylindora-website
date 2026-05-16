@@ -1,32 +1,33 @@
 import ExternalLinkIcon from './icons/ExternalLinkIcon'
 import GitHubIcon from './icons/GitHubIcon'
 
-export default function ProjectCard({ title, description, image, tech, liveUrl, repoUrl, featured }) {
+export default function ProjectCard({ title, description, image, tech, liveUrl, repoUrl, featured, accentColor, tiltClass }) {
   return (
-    <div className={`group flex flex-col rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 ${featured ? 'md:col-span-2' : ''}`}>
-      <div className="overflow-hidden bg-accent-50">
+    <div className={`group flex flex-col rounded-3xl bg-white border-thick border-ink overflow-hidden shadow-pop hover:shadow-pop-lg transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-1 hover:rotate-0 ${tiltClass} ${featured ? 'md:col-span-2' : ''}`}>
+
+      <div className="relative overflow-hidden border-b-thick border-b-2 border-ink">
         <img
           src={image}
           alt={title}
-          className="w-full object-cover h-36 sm:h-44 group-hover:scale-105 transition-transform duration-500"
+          className="w-full object-cover h-40 sm:h-52 group-hover:scale-110 transition-transform duration-500"
         />
+        {featured && (
+          <span className={`absolute top-3 right-3 ${accentColor} text-ink text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full border-thick border-ink shadow-pop-sm rotate-3`}>
+            ★ Featured
+          </span>
+        )}
+        {/* corner colored circle accent */}
+        <span className={`absolute -bottom-3 -left-3 w-8 h-8 rounded-full ${accentColor} border-thick border-ink`} />
       </div>
 
-      <div className="flex flex-col flex-1 p-4 sm:p-6">
-        <div className="flex items-start justify-between gap-3 mb-2">
-          <h3 className="font-display text-base sm:text-lg font-semibold text-gray-900">{title}</h3>
-          {featured && (
-            <span className="shrink-0 text-xs font-medium px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">
-              Featured
-            </span>
-          )}
-        </div>
+      <div className="flex flex-col flex-1 p-5 sm:p-6">
+        <h3 className="font-display text-lg sm:text-xl font-black text-ink mb-2">{title}</h3>
 
-        <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-4">{description}</p>
+        <p className="text-ink/60 text-sm leading-relaxed flex-1 mb-4">{description}</p>
 
-        <div className="flex flex-wrap gap-1.5 mb-4 sm:mb-5">
+        <div className="flex flex-wrap gap-1.5 mb-5">
           {tech.map(t => (
-            <span key={t} className="text-xs px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-600 font-medium">
+            <span key={t} className="text-xs px-2.5 py-0.5 rounded-full bg-yellow-100 text-ink font-bold border-thick border-ink">
               {t}
             </span>
           ))}
@@ -38,10 +39,10 @@ export default function ProjectCard({ title, description, image, tech, liveUrl, 
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm font-medium text-accent-600 hover:text-accent-700 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-ink text-cream text-xs font-black uppercase tracking-wider hover:bg-rose-500 transition-colors"
             >
-              <ExternalLinkIcon />
-              Live site
+              <ExternalLinkIcon className="w-3.5 h-3.5" />
+              Live
             </a>
           )}
           {repoUrl && (
@@ -49,10 +50,10 @@ export default function ProjectCard({ title, description, image, tech, liveUrl, 
               href={repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-700 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border-thick border-ink text-ink text-xs font-black uppercase tracking-wider hover:bg-amber-200 transition-colors"
             >
-              <GitHubIcon className="w-4 h-4" />
-              Source
+              <GitHubIcon className="w-3.5 h-3.5" />
+              Code
             </a>
           )}
         </div>

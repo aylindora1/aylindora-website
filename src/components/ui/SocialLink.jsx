@@ -3,6 +3,11 @@ import LinkedInIcon from './icons/LinkedInIcon'
 import MailIcon from './icons/MailIcon'
 
 const icons = { github: GitHubIcon, linkedin: LinkedInIcon, mail: MailIcon }
+const bgByIcon = {
+  github:   'bg-violet-200 hover:bg-violet-300',
+  linkedin: 'bg-sky-200 hover:bg-sky-300',
+  mail:     'bg-emerald-200 hover:bg-emerald-300',
+}
 
 export default function SocialLink({ label, href, icon }) {
   const Icon = icons[icon]
@@ -12,10 +17,10 @@ export default function SocialLink({ label, href, icon }) {
       target={icon !== 'mail' ? '_blank' : undefined}
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex items-center gap-2 text-gray-500 hover:text-accent-600 transition-colors duration-200 group"
+      className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border-thick border-ink text-ink ${bgByIcon[icon]} shadow-pop-sm hover:shadow-pop hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all`}
     >
-      <Icon className="w-5 h-5" />
-      <span className="text-sm font-medium">{label}</span>
+      <Icon className="w-4 h-4" />
+      <span className="text-xs font-black uppercase tracking-wider">{label}</span>
     </a>
   )
 }
