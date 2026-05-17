@@ -1,7 +1,7 @@
 // Language-agnostic styling + identity data — shared across all languages
 const SHARED = {
   name: 'Aylin Dora Leblebici',
-  photo: 'https://placehold.co/400x400/fde047/0f0e17?text=AD',
+  photo: '../../DoraPic.jpeg',
   contactEmail: 'aylin.d.leblebici@gmail.com',
   phone: '+41 78 307 84 18',
   available: true,
@@ -73,7 +73,7 @@ const CV_TEXT = {
     education: [{
       degree: 'B.Sc. Computer Engineering',
       period: '2024 – 2027 (expected)',
-      notes: 'Completed CMS (Cycle Matriciel) foundation year.',
+      notes: 'Completed CMS (Mathematical Preparation) foundation year.',
     }],
     languages: [
       { name: 'Turkish', level: 'Native'         },
@@ -114,7 +114,7 @@ const CV_TEXT = {
     education: [{
       degree: 'B.Sc. en Génie Informatique',
       period: '2024 – 2027 (prévu)',
-      notes: 'Année préparatoire CMS (Cycle Matriciel) terminée.',
+      notes: 'Année prépa CMS (Cours de mathématiques spéciales) terminée.',
     }],
     languages: [
       { name: 'Turc',      level: 'Langue maternelle' },
@@ -155,7 +155,7 @@ const CV_TEXT = {
     education: [{
       degree: 'Lisans, Bilgisayar Mühendisliği',
       period: '2024 – 2027 (beklenen)',
-      notes: 'CMS (Cycle Matriciel) hazırlık yılını tamamladım.',
+      notes: 'CMS (Üst Matematik) hazırlık yılını tamamladım.',
     }],
     languages: [
       { name: 'Türkçe',    level: 'Ana dil'   },
@@ -293,7 +293,7 @@ export const UI = {
       sayHello: 'Selam ver',
       statProjects: 'proje',
       statLanguages: 'dil',
-      marquee: ['★ KODLAR', '★ İNŞA EDER', '★ YAYINLAR', '★ TASARLAR', '★ ÖĞRETİR', '★ ÖĞRENİR', '★ KURCALAR', '★ DENEYLER', '★ ÜÇ DİLLİ', "★ EPFL '27"],
+      marquee: ['★ KODLAR', '★ İNŞA EDER', '★ YAYINLAR', '★ TASARLAR', '★ ÖĞRETİR', '★ ÖĞRENİR', '★ KURCALAR', '★ PROJELER', '★ ÜÇ DİL', "★ EPFL '27"],
     },
     experience: { label: 'ne yapıyorum', headline1: 'Öğretmenlik ', headline2: 'Deneyimi', subtitle: 'Sevdiğim şeyleri meraklı zihinlerin yeni nesliyle paylaşıyorum. ★' },
     skills:     { label: 'ekipmanım', headline1: 'Yetenekler & ', headline2: 'Araçlar', subtitle: 'Güvenecek kadar kullandığım araçlar — ve henüz aşık olmaya başladıklarım.' },

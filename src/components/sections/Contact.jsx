@@ -35,12 +35,12 @@ export default function Contact() {
           {t.subtitle}
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start max-w-3xl">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start max-w-3xl mr-1.5 md:mr-0">
           <form
             action={`mailto:${cv.contactEmail}`}
             method="POST"
             encType="text/plain"
-            className="space-y-4 bg-white border-thick border-ink rounded-3xl p-5 sm:p-6 shadow-pop"
+            className="space-y-4 bg-white border-thick border-ink rounded-3xl p-4 sm:p-6 shadow-pop-sm sm:shadow-pop"
           >
             <div>
               <label className="block text-xs font-black uppercase tracking-wider text-ink mb-1.5" htmlFor="name">{t.formName}</label>
@@ -73,7 +73,7 @@ export default function Contact() {
           </form>
 
           <div className="space-y-5">
-            <div className="bg-white border-thick border-ink rounded-3xl p-5 shadow-pop space-y-4">
+            <div className="bg-white border-thick border-ink rounded-3xl p-4 sm:p-5 shadow-pop-sm sm:shadow-pop space-y-4">
               <div>
                 <p className="text-[10px] font-black uppercase tracking-widest text-rose-600 mb-2">{t.emailLabel}</p>
                 <div className="flex items-center min-w-0">
@@ -92,7 +92,7 @@ export default function Contact() {
               )}
             </div>
 
-            <div className="bg-white border-thick border-ink rounded-3xl p-5 shadow-pop">
+            <div className="bg-white border-thick border-ink rounded-3xl p-4 sm:p-5 shadow-pop-sm sm:shadow-pop">
               <p className="text-[10px] font-black uppercase tracking-widest text-violet-600 mb-3">{t.socialLabel}</p>
               <div className="space-y-2.5">
                 {cv.social.map((s, i) => {
