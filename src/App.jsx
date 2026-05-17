@@ -6,15 +6,11 @@ import Skills from './components/sections/Skills'
 import Projects from './components/sections/Projects'
 import Contact from './components/sections/Contact'
 import ScrollProgress from './components/ui/ScrollProgress'
-import { useLanguage } from './i18n/LanguageContext'
 
 function Footer() {
-  const { ui } = useLanguage()
   return (
     <footer className="border-t-thick border-t-2 border-ink py-8 text-center text-ink/60 text-sm font-bold bg-ink">
-      <p className="text-cream">
-        {ui.footer.madeWith} <span className="text-rose-400">★</span> {ui.footer.and} <span className="text-amber-400">{ui.footer.caffeine}</span> · {new Date().getFullYear()}
-      </p>
+      <p className="text-cream">2026</p>
     </footer>
   )
 }
