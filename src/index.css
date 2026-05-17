@@ -27,26 +27,13 @@
 }
 
 @layer utilities {
-  .text-rainbow {
-    background: linear-gradient(90deg, #f43f5e 0%, #f59e0b 25%, #10b981 50%, #0ea5e9 75%, #8b5cf6 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease infinite;
-  }
-
   .border-thick {
     border-width: 2.5px;
   }
 
-  /* Sticker — slight rotation + hard offset shadow */
+  /* Sticker — hard offset shadow card */
   .sticker {
-    @apply border-thick border-ink rounded-2xl bg-white shadow-pop transition-all duration-200;
-  }
-  .sticker:hover {
-    transform: translate(-2px, -2px);
-    @apply shadow-pop-lg;
+    @apply border-thick border-ink rounded-2xl bg-white shadow-pop;
   }
 
   .section-label {

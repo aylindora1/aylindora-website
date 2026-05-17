@@ -1,18 +1,18 @@
 import ExternalLinkIcon from './icons/ExternalLinkIcon'
 import GitHubIcon from './icons/GitHubIcon'
 
-export default function ProjectCard({ title, description, image, tech, liveUrl, repoUrl, featured, accentColor, tiltClass }) {
+export default function ProjectCard({ title, description, image, tech, liveUrl, repoUrl, featured, accentColor }) {
   return (
-    <div className={`group flex flex-col rounded-3xl bg-white border-thick border-ink overflow-hidden shadow-pop hover:shadow-pop-lg transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-1 hover:rotate-0 ${tiltClass} ${featured ? 'md:col-span-2' : ''}`}>
+    <div className={`flex flex-col rounded-3xl bg-white border-thick border-ink overflow-hidden shadow-pop ${featured ? 'md:col-span-2' : ''}`}>
 
       <div className="relative overflow-hidden border-b-thick border-b-2 border-ink">
         <img
           src={image}
           alt={title}
-          className="w-full object-cover h-40 sm:h-52 group-hover:scale-110 transition-transform duration-500"
+          className="w-full object-cover h-40 sm:h-52"
         />
         {featured && (
-          <span className={`absolute top-3 right-3 ${accentColor} text-ink text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full border-thick border-ink shadow-pop-sm rotate-3`}>
+          <span className={`absolute top-3 right-3 ${accentColor} text-ink text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full border-thick border-ink shadow-pop-sm`}>
             ★ Featured
           </span>
         )}
@@ -39,7 +39,7 @@ export default function ProjectCard({ title, description, image, tech, liveUrl, 
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-ink text-cream text-xs font-black uppercase tracking-wider hover:bg-rose-500 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-ink text-cream text-xs font-black uppercase tracking-wider"
             >
               <ExternalLinkIcon className="w-3.5 h-3.5" />
               Live
@@ -50,7 +50,7 @@ export default function ProjectCard({ title, description, image, tech, liveUrl, 
               href={repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border-thick border-ink text-ink text-xs font-black uppercase tracking-wider hover:bg-amber-200 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border-thick border-ink text-ink text-xs font-black uppercase tracking-wider"
             >
               <GitHubIcon className="w-3.5 h-3.5" />
               Code

@@ -42,10 +42,6 @@ export default {
           '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
           '50%':       { transform: 'translateY(-20px) rotate(8deg)' },
         },
-        'wiggle': {
-          '0%, 100%': { transform: 'rotate(-2deg)' },
-          '50%':       { transform: 'rotate(2deg)' },
-        },
         'pulse-glow': {
           '0%, 100%': { 'box-shadow': '0 0 0 0 rgba(244, 63, 94, 0.5)' },
           '50%':       { 'box-shadow': '0 0 30px 5px rgba(244, 63, 94, 0.3)' },
@@ -58,7 +54,6 @@ export default {
       animation: {
         'gradient-shift': 'gradient-shift 8s ease infinite',
         'float-slow':     'float-slow 6s ease-in-out infinite',
-        'wiggle':         'wiggle 3s ease-in-out infinite',
         'pulse-glow':     'pulse-glow 2.5s ease-in-out infinite',
         'marquee':        'marquee 30s linear infinite',
       },

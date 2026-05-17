@@ -8,7 +8,7 @@ export default function TimelineEntry({ company, role, period, location, bullets
       {/* dot */}
       <div className={`absolute left-0 top-0 w-7 h-7 rounded-full ${dotColor} border-thick border-ink shadow-pop-sm`} />
 
-      <div className={`sticker ${shadowColor} p-5 sm:p-6 -rotate-[0.4deg] hover:rotate-0`}>
+      <div className={`sticker ${shadowColor} p-5 sm:p-6`}>
         <div className="mb-3">
           <div className="flex flex-col xs:flex-row xs:items-baseline xs:justify-between gap-1">
             <h3 className="font-display text-base sm:text-lg font-black text-ink">{role}</h3>
